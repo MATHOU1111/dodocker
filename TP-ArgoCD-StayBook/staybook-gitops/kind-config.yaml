@@ -5,7 +5,7 @@ name: argocd-tp
 nodes:
   - role: control-plane
     extraPortMappings:
-      - containerPort: 30080   # Argo CD (interface web, HTTP)
+      - containerPort: 30080   # Argo CD (interface web)
         hostPort: 8080
         protocol: TCP
       - containerPort: 30081   # StayBook (front)

@@ -1,0 +1,15 @@
+# Environnement de production : même base, namespace staybook-prod, plus de réplicas, autre port.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: staybook-prod
+resources:
+  - ../../base/staybook
+images:
+  - name: staybook-front
+    newTag: v1
+patches:
+  - path: front-nodeport.yaml
+    target:
+      kind: Service
+      name: front
+# À COMPLÉTER (partie 1.3) : le bloc replicas
